@@ -11,10 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 /**
- * Created by KPR on 24/01/2017. Задание 1. Подготовьте инфраструктуру
+ * Created by KPR on 24/01/2017. Задание 3. Сделайте сценарий логина
  */
 
-public class task1 {
+public class task3
+{
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -26,12 +27,13 @@ public class task1 {
     }
 
     @Test
-    public void test ()
+    public void myTest()
     {
-       driver.get("http://www.google.ru");
-       driver.findElement(By.name("q")).sendKeys("selenium");
-       driver.findElement(By.name("btnG")).click();
-       wait.until(titleIs("selenium - Поиск в Google"));
+        driver.get("http://localhost/litecart/admin");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+        wait.until(titleIs("My Store"));
     }
 
     @After
