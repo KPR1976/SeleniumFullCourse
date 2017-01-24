@@ -1,1 +1,1 @@
-# SeleniumCourse
+# Exercises from Selenium course
