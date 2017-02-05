@@ -31,13 +31,13 @@ public class task8 {
         driver.get("http://localhost/litecart/");
 
         // creating a list of products on mainpage
-        List<WebElement> elements = driver.findElements(By.cssSelector("li[class^=product]"));
+        List<WebElement> elements = driver.findElements(By.cssSelector(".product"));
+        System.out.println(elements.size());
 
         // checking of each elemnt have only one sticker
         for (WebElement el :elements)
         {
-            List<WebElement> stickers = el.findElements(By.cssSelector("[class^=sticker]"));
-            Assert.assertTrue(el.findElements(By.cssSelector("[class^=sticker]")).size() == 1);
+            Assert.assertTrue(el.findElements(By.cssSelector(".sticker")).size() == 1);
         }
     }
 
