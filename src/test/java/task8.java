@@ -32,7 +32,6 @@ public class task8 {
 
         // creating a list of products on mainpage
         List<WebElement> elements = driver.findElements(By.cssSelector(".product"));
-        System.out.println(elements.size());
 
         // checking of each elemnt have only one sticker
         for (WebElement el :elements)
