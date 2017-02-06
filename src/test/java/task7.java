@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * Created by KPR on 02/02/2017.
