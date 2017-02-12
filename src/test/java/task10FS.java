@@ -47,7 +47,6 @@ public class task10FS {
         String campaignpricefontsize = mainpage.findElement(By.cssSelector(".campaign-price")).getCssValue("font-size");
 
         // checking of each elemnt have only one sticker
-        //System.out.println("Click on childpage");
         driver.findElement(By.cssSelector("#box-campaigns .link")).click();
         wait.until(titleIs("Yellow Duck | Subcategory | Rubber Ducks | My Store"));
 

@@ -73,11 +73,11 @@ public class task11 {
 
     }
 
-    @After
-    public void Stop()
-    {
-        driver.quit();
-        driver = null;
-    }
+        @After
+        public void Stop()
+        {
+            driver.quit();
+            driver = null;
+        }
 
 }
