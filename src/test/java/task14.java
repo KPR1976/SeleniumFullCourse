@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 //import static org.openqa.selenium.support.ui.ExpectedConditions.;
 
@@ -26,6 +27,17 @@ public class task14 {
     private WebDriver driver;
     private WebDriverWait wait;
 
+
+    private String checkNewWindow(Set<String> oldWindows)
+    {
+        Set<String> windows = driver.getWindowHandles();
+        windows.removeAll(oldWindows);
+        if (windows.size() > 0)
+            return windows.iterator().next();
+        else
+            return null;
+
+    } //*/
 
     @Before
     public void Start()
@@ -56,19 +68,19 @@ public class task14 {
         for (WebElement externallink : externallinks)
         {
             String current = driver.getWindowHandle();
-            Set<String> windows = driver.getWindowHandles();
+            Set<String> oldWindows = driver.getWindowHandles();
             externallink.click();
-            //Set<String> windowsnew = driver.getWindowHandles();
-            //String newWindow = wait.until();
-            //driver.switchTo().window(newWindow);
-            String currentnew = driver.getWindowHandle();
-            System.out.println(externallink.getAttribute("href"));
+            String newWindow = checkNewWindow(oldWindows);
+            driver.switchTo().window(newWindow);
+            System.out.println(driver.getTitle());
+            driver.close();
+            driver.switchTo().window(current);
         }
-
-
 
         System.out.println("blablabla");
     }
+
+
 
 
     @After
