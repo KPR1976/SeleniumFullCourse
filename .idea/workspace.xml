@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd201aae-eb4a-463c-9727-9e9f792d4cdb" name="Default" comment="">
+    <list default="true" id="fd201aae-eb4a-463c-9727-9e9f792d4cdb" name="Default" comment="code for task 14(final with custom ExpectedCondition):&#10;Проверьте, что ссылки открываются в новом окне&#10;Сделайте сценарий, который проверяет, что ссылки на странице редактирования страны открываются в новом окне.&#10;&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/task14.java" afterPath="$PROJECT_DIR$/src/test/java/task14.java" />
     </list>
@@ -49,8 +49,8 @@
       <file leaf-file-name="task14.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/task14.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+            <state relative-caret-position="261">
+              <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -469,28 +469,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SeleniumFullCourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java-example" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SeleniumFullCourse" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1044,38 +1022,45 @@
       <option name="project" value="LOCAL" />
       <updated>1487155439574</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="code for task 14(draft):&#10;Проверьте, что ссылки открываются в новом окне&#10;Сделайте сценарий, который проверяет, что ссылки на странице редактирования страны открываются в новом окне.&#10;&#10;">
+      <created>1487163345931</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1487163345931</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="task14 - 2017.02.15 at 13h 58m 16s.xml">
+    <history-entry file="task14 - 2017.02.16 at 12h 49m 31s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 13m 25s.xml">
+    <history-entry file="task14 - 2017.02.16 at 13h 32m 23s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 15m 22s.xml">
+    <history-entry file="task14 - 2017.02.16 at 13h 32m 45s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 17m 34s.xml">
+    <history-entry file="task14 - 2017.02.16 at 14h 16m 37s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 38m 00s.xml">
+    <history-entry file="task14 - 2017.02.16 at 14h 17m 03s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 42m 52s.xml">
+    <history-entry file="task14 - 2017.02.16 at 14h 18m 52s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 49m 36s.xml">
+    <history-entry file="task14 - 2017.02.16 at 14h 20m 33s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 50m 11s.xml">
+    <history-entry file="task14 - 2017.02.16 at 14h 22m 18s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 53m 21s.xml">
+    <history-entry file="task14 - 2017.02.16 at 14h 26m 15s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="task14 - 2017.02.15 at 14h 55m 18s.xml">
+    <history-entry file="task14 - 2017.02.16 at 14h 28m 08s.xml">
       <configuration name="task14" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1151,7 +1136,8 @@
     <MESSAGE value="code for task 13:&#10;Сделайте сценарий для добавления товаров в корзину и удаления товаров из корзины." />
     <MESSAGE value="refactoring code for task 13:&#10;adding loop for adding to cart" />
     <MESSAGE value="code for task 14(draft):&#10;Проверьте, что ссылки открываются в новом окне&#10;Сделайте сценарий, который проверяет, что ссылки на странице редактирования страны открываются в новом окне.&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="code for task 14(draft):&#10;Проверьте, что ссылки открываются в новом окне&#10;Сделайте сценарий, который проверяет, что ссылки на странице редактирования страны открываются в новом окне.&#10;&#10;" />
+    <MESSAGE value="code for task 14(final with custom ExpectedCondition):&#10;Проверьте, что ссылки открываются в новом окне&#10;Сделайте сценарий, который проверяет, что ссылки на странице редактирования страны открываются в новом окне.&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="code for task 14(final with custom ExpectedCondition):&#10;Проверьте, что ссылки открываются в новом окне&#10;Сделайте сценарий, который проверяет, что ссылки на странице редактирования страны открываются в новом окне.&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1163,7 +1149,7 @@
           <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="61" />
+      <option name="time" value="62" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1344,14 +1330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1463,10 +1441,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/task14.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+        <state relative-caret-position="261">
+          <caret line="37" column="13" lean-forward="true" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

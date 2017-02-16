@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-//import static org.openqa.selenium.support.ui.ExpectedConditions.;
-
 
 import java.util.List;
 import java.util.Set;
@@ -27,17 +25,19 @@ public class task14 {
     private WebDriver driver;
     private WebDriverWait wait;
 
-
-    private String checkNewWindow(Set<String> oldWindows)
-    {
-        Set<String> windows = driver.getWindowHandles();
-        windows.removeAll(oldWindows);
-        if (windows.size() > 0)
-            return windows.iterator().next();
-        else
-            return null;
-
-    } //*/
+    // custom ExpectedCondition for check if new page id open
+    private ExpectedCondition<String> waitForNewWindow(Set<String> oldWindows) {
+        return new ExpectedCondition<String>() {
+            public String apply(WebDriver driver) {
+                Set<String> windows = driver.getWindowHandles();
+                windows.removeAll(oldWindows);
+                if (windows.size() > 0)
+                    return windows.iterator().next();
+                else
+                    return null;
+            }
+        };
+    }
 
     @Before
     public void Start()
@@ -45,8 +45,6 @@ public class task14 {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
     }
-
-
 
     @Test
     public void myTest()
@@ -63,24 +61,21 @@ public class task14 {
         //click on "add new country"
         driver.findElement(By.cssSelector(".button")).click();
         List<WebElement> externallinks = driver.findElements(By.cssSelector("form tbody tr td [target='_blank']"));
-        System.out.println(externallinks.size());
+        //System.out.println(externallinks.size());
 
         for (WebElement externallink : externallinks)
         {
             String current = driver.getWindowHandle();
             Set<String> oldWindows = driver.getWindowHandles();
             externallink.click();
-            String newWindow = checkNewWindow(oldWindows);
+            String newWindow = wait.until(waitForNewWindow(oldWindows));
             driver.switchTo().window(newWindow);
-            System.out.println(driver.getTitle());
+            //System.out.println(driver.getCurrentUrl());
             driver.close();
             driver.switchTo().window(current);
         }
 
-        System.out.println("blablabla");
     }
-
-
 
 
     @After
