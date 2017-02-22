@@ -1,4 +1,5 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -8,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,34 +35,43 @@ public class task17
         @Test
         public void test ()
         {
+            // login to admin page
             driver.get("http://localhost/litecart/admin");
             driver.findElement(By.name("username")).sendKeys("admin");
             driver.findElement(By.name("password")).sendKeys("admin");
             driver.findElement(By.name("login")).click();
-
+            // go to goods catalog
             driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1");
 
             //List<WebElement> goods = driver.findElements(By.partialLinkText("Duck"));
             //List<WebElement> goods = driver.findElements(By.cssSelector(".dataTable .row .td[3] a"));
-            List<WebElement> goods = driver.findElements(By.xpath(".//tr/td[3]/a"));
-            System.out.println(goods.size());
-            for (WebElement g : goods)
+
+            // list of webelements for goods
+            List<WebElement> goodsw = driver.findElements(By.xpath(".//tr/td[3]/a"));
+            System.out.println(goodsw.size());
+            List<String> goods = new ArrayList<>();
+            // check every good
+
+            for (WebElement g : goodsw)
             {
                 System.out.println(g.getText());
                 if (!g.getText().equals("Subcategory"))
-                {
-                    //System.out.println(g.getText());
-                    g.click();
-                    System.out.println("dg");
-                    for (LogEntry l : driver.manage().logs().get("browser").getAll()) {
-                    System.out.println(l);
-                    }
-                    System.out.println("dgg");
-                }
+                    goods.add(g.getAttribute("textContent"));
+            }
+            System.out.println(goods.size());
+
+            for (String g : goods)
+            {
+                //System.out.println(g);
+                driver.findElement(By.linkText(g)).click();
+                //System.out.println(driver.findElement(By.cssSelector("title")).getAttribute("textContent"));
+                //head > title
+                List<LogEntry> log = driver.manage().logs().get("browser").getAll();
+                Assert.assertTrue(log.size() == 0);
                 driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1");
+
             }
 
-            System.out.println("blablabla");
 
         }
 
