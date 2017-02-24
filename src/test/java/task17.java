@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,13 +21,11 @@ import java.util.List;
 public class task17
 {
         private WebDriver driver;
-        private WebDriverWait wait;
 
         @Before
         public void Start()
         {
             driver = new ChromeDriver();
-            wait = new WebDriverWait(driver, 10);
         }
 
         @Test
@@ -40,38 +36,29 @@ public class task17
             driver.findElement(By.name("username")).sendKeys("admin");
             driver.findElement(By.name("password")).sendKeys("admin");
             driver.findElement(By.name("login")).click();
+
             // go to goods catalog
             driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1");
 
-            //List<WebElement> goods = driver.findElements(By.partialLinkText("Duck"));
-            //List<WebElement> goods = driver.findElements(By.cssSelector(".dataTable .row .td[3] a"));
-
             // list of webelements for goods
-            List<WebElement> goodsw = driver.findElements(By.xpath(".//tr/td[3]/a"));
-            System.out.println(goodsw.size());
+            //List<WebElement> goods = driver.findElements(By.cssSelector(".dataTable .row .td[3] a")); cssselector
+            List<WebElement> goodsw = driver.findElements(By.xpath(".//tr/td[3]/a")); //xpath
             List<String> goods = new ArrayList<>();
-            // check every good
-
+            // check every webelement if it product or category
             for (WebElement g : goodsw)
             {
-                System.out.println(g.getText());
                 if (!g.getText().equals("Subcategory"))
                     goods.add(g.getAttribute("textContent"));
             }
-            System.out.println(goods.size());
 
+            // go to the good's page
             for (String g : goods)
             {
-                //System.out.println(g);
                 driver.findElement(By.linkText(g)).click();
-                //System.out.println(driver.findElement(By.cssSelector("title")).getAttribute("textContent"));
-                //head > title
-                List<LogEntry> log = driver.manage().logs().get("browser").getAll();
-                Assert.assertTrue(log.size() == 0);
+                // check browserlogs for page
+                Assert.assertTrue(driver.manage().logs().get("browser").getAll().size() == 0);
                 driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1");
-
             }
-
 
         }
 
