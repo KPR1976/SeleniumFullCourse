@@ -24,38 +24,27 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentI
  и реализуйте сценарий, который не напрямую обращается к операциям Selenium,
  а оперирует вышеперечисленными объектами-страницами.
  */
-public class task19
+public class task19 extends TestBase
 {
-    private WebDriver driver;
-    private WebDriverWait wait;
-
-    @Before
-    public void Start()
-    {
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 10);
-    }
 
     @Test
-    public void myTest() throws Exception {
-        // open mainpage of shop and add 3 ducks to cart in loop
-        for (int i = 1; i <= 3; i++) {
+    public void myTest() {
+
+        for (int i = 1; i <= 3; i++)
+        {
             String num = String.valueOf(i);
-            // open mainpage
-            driver.get("http://localhost/litecart/");
-            // find first item in popular and click
-            driver.findElement(By.cssSelector("#box-most-popular li:nth-child(1)")).click();
-            // check "Yellow duck" because it contains 3 sizes of duck
-            if (driver.findElement(By.tagName("h1")).getAttribute("textContent").equals("Yellow Duck"))
-                new Select(driver.findElement(By.cssSelector("[name='options[Size]']"))).selectByValue("Large");
-            // add the ducj to cart
-            driver.findElement(By.cssSelector(".quantity button")).click();
-            // wait for renew of quantity in cart
-            wait.until(textToBePresentInElementLocated(By.cssSelector("#cart .quantity"),num));
+            shopmainPage();
+            chooseaGood();
+            addtoCart(String.valueOf(i));
         }
+
+        checkoutPage();
+        removefromCart();
+        /*
         // go to checkout
-        driver.findElement(By.cssSelector("#cart .link")).click();
+        //TODO : create a class Checkout
         // count how elements in cart and remove one after one
+        //TODO : create a class remove from cart
         List<WebElement> row = driver.findElements(By.cssSelector("#order_confirmation-wrapper tr td.item"));
         for (int i = 0; i < row.size(); i++)
         {
@@ -63,13 +52,15 @@ public class task19
             WebElement removeitem = driver.findElement(By.cssSelector("[value='Remove']"));
             removeitem.click();
             wait.until(stalenessOf(row.get(0)));
-        }
-    }
+        }*/
+            System.out.println("blablabla");
 
+    }
     @After
     public void Stop()
     {
         driver.quit();
         driver = null;
     }
+
 }
