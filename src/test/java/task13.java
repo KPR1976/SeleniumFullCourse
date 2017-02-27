@@ -1,17 +1,17 @@
+
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import java.util.List;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 /**
  * Created by KPR on 14/02/2017.
@@ -48,23 +48,42 @@ public class task13
             // check "Yellow duck" because it contains 3 sizes of duck
             if (driver.findElement(By.tagName("h1")).getAttribute("textContent").equals("Yellow Duck"))
                 new Select(driver.findElement(By.cssSelector("[name='options[Size]']"))).selectByValue("Large");
-            // add the ducj to cart
+            // add the duck to cart
             driver.findElement(By.cssSelector(".quantity button")).click();
             // wait for renew of quantity in cart
             wait.until(textToBePresentInElementLocated(By.cssSelector("#cart .quantity"),num));
+
         }
         // go to checkout
         driver.findElement(By.cssSelector("#cart .link")).click();
         // count how elements in cart and remove one after one
         List<WebElement> row = driver.findElements(By.cssSelector("#order_confirmation-wrapper tr td.item"));
-        for (int i = 0; i < row.size(); i++)
+        for (int i = 0; i < row.size()  ; i++)
         {
-
-            WebElement removeitem = driver.findElement(By.cssSelector("[value='Remove']"));
-            removeitem.click();
-            wait.until(stalenessOf(row.get(0)));
+           List<WebElement> shortcuts = driver.findElements(By.cssSelector("#box-checkout-cart .shortcuts li"));
+           if (shortcuts.size() > 0) {
+               WebElement shortcut = driver.findElement(By.cssSelector("#box-checkout-cart .shortcuts li:nth-child(1)"));
+               shortcut.click();
+               WebElement btn = wait.until(elementToBeClickable(By.cssSelector("[name='remove_cart_item']")));
+               btn.click();
+               wait.until(stalenessOf(row.get(0)));
+           }
+           else
+           {
+               WebElement btn = wait.until(elementToBeClickable(By.cssSelector("[name='remove_cart_item']")));
+               btn.click();
+               wait.until(stalenessOf(row.get(0)));
+           }
         }
+
+        wait.until(numberOfElementsToBe(By.cssSelector("#checkout-cart-wrapper p"), 2));
+        Assert.assertEquals(driver.findElement(By.cssSelector("#checkout-cart-wrapper p")).getText(),
+               "There are no items in your cart.");
+
+
     }
+
+
 
     @After
     public void Stop()

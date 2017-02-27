@@ -28,7 +28,7 @@ public class task1withproxy {
     public void Start()
     {
         proxy = new BrowserMobProxyServer();
-        proxy.start(8888);
+        proxy.start(8080);
 
         // get the Selenium proxy object
         Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
