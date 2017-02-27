@@ -16,4 +16,6 @@ public class MainPage extends PageBase
         driver.get("http://localhost/litecart/");
         return this;
     }
+
+    public
 }

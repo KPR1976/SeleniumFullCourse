@@ -39,16 +39,7 @@ public class Cart {
         driver.findElement(By.cssSelector("#box-most-popular li:nth-child(1)")).click();
     }
 
-    public void addtocart()
-    {
-        String qb = driver.findElement(By.cssSelector(".quantity")).getAttribute("textContent");
-        if (driver.findElement(By.tagName("h1")).getAttribute("textContent").equals("Yellow Duck"))
-            new Select(driver.findElement(By.cssSelector("[name='options[Size]']"))).selectByValue("Large");
-        // add the duck to cart
-        driver.findElement(By.cssSelector(".quantity button")).click();
-        // wait for renew of quantity in cart
-        wait.until(not(textToBePresentInElementLocated(By.cssSelector("#cart .quantity"),qb)));
-    }
+
 
     public void checkoutPage()
     {
