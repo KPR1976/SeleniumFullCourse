@@ -1,3 +1,4 @@
+import objects.Cart;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,49 +19,29 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentI
  Переделайте созданный в задании 13 сценарий для добавления товаров в корзину и удаления товаров из корзины,
  чтобы он использовал многослойную архитектуру.
 
- А именно, выделите вспомогательные классы для работы с главной страницей (откуда выбирается товар),
- для работы со страницей товара (откуда происходит добавление товара в корзину),
- со страницей корзины (откуда происходит удаление),
- и реализуйте сценарий, который не напрямую обращается к операциям Selenium,
- а оперирует вышеперечисленными объектами-страницами.
+ А именно, выделите вспомогательные классы
+ - для работы с главной страницей (откуда выбирается товар),
+ - для работы со страницей товара (откуда происходит добавление товара в корзину),
+ - со страницей корзины (откуда происходит удаление),
+ и реализуйте сценарий, который не напрямую обращается к операциям Selenium, а оперирует вышеперечисленными объектами-страницами.
  */
 public class task19 extends TestBase
 {
 
     @Test
-    public void myTest() {
+    public void buyGoods() {
 
         for (int i = 1; i <= 3; i++)
         {
-            String num = String.valueOf(i);
-            shopmainPage();
-            chooseaGood();
-            addtoCart(String.valueOf(i));
+            cart.chooseaGood();
+            cart.addtocart();
         }
 
-        checkoutPage();
-        removefromCart();
-        /*
-        // go to checkout
-        //TODO : create a class Checkout
-        // count how elements in cart and remove one after one
-        //TODO : create a class remove from cart
-        List<WebElement> row = driver.findElements(By.cssSelector("#order_confirmation-wrapper tr td.item"));
-        for (int i = 0; i < row.size(); i++)
-        {
+        cart.checkoutPage();
+        cart.removefromCart();
 
-            WebElement removeitem = driver.findElement(By.cssSelector("[value='Remove']"));
-            removeitem.click();
-            wait.until(stalenessOf(row.get(0)));
-        }*/
-            System.out.println("blablabla");
+           // System.out.println("blablabla");
 
-    }
-    @After
-    public void Stop()
-    {
-        driver.quit();
-        driver = null;
     }
 
 }
