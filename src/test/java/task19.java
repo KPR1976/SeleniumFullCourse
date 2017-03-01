@@ -1,18 +1,8 @@
-import objects.Cart;
-import org.junit.After;
-import org.junit.Before;
+import pages.CheckoutPage;
+import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
-import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElementLocated;
+import pages.MainPage;
+import pages.ProductPage;
 
 /*
  * Created by KPR on 24/02/2017.
@@ -29,18 +19,24 @@ public class task19 extends TestBase
 {
 
     @Test
-    public void buyGoods() {
+    public void test()
+    {
+        MainPage shoppage  = new MainPage(driver);
+        ProductPage productpage = new ProductPage(driver);
+        CheckoutPage checkoutpage = new CheckoutPage(driver);
+
 
         for (int i = 1; i <= 3; i++)
         {
-            cart.chooseaGood();
-            cart.addtocart();
+            shoppage.open();
+            productpage = shoppage.chooseProduct();
+            productpage.addtocart();
         }
 
-        cart.checkoutPage();
-        cart.removefromCart();
+       checkoutpage = productpage.gotoCheckout();
+       checkoutpage.removefromCart();
 
-           // System.out.println("blablabla");
+       Assert.assertTrue(checkoutpage.emptyCart());
 
     }
 

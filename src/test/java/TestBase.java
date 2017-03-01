@@ -1,18 +1,9 @@
-import objects.Cart;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 /**
  * Created by KPR on 26/02/2017.
@@ -20,12 +11,22 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 public class TestBase
 {
 
-    public Cart cart;
+    public WebDriver driver;
+    public WebDriverWait wait;
+
 
     @Before
     public void Start()
     {
-        cart = new Cart();
+       driver = new ChromeDriver();
+       wait = new WebDriverWait(driver, 10);
     }
 
+    @After
+    public void Stop()
+    {
+        driver.quit();
+        driver = null;
+    }
 }
+
